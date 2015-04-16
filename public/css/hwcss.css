@@ -1,0 +1,36 @@
+header {
+	background-color: lightblue;
+}
+.page_heading{
+	text-align: center;
+}
+.page_heading p{
+	font-family: helvetica;
+	border-style: dashed;
+	padding: 5px;
+}
+strong {
+	color: red;
+}
+em {
+	text-decoration: underline;
+}
+.main_content {
+	background-color: beige;
+	font-family: Arial;
+}
+.main_content h2 {
+	color: red;
+}
+.main_content ul {
+	list-style-image: url("/img/deadpool_icon.png")
+}
+.main_content ol {
+	list-style: lower-greek;
+}
+.fav_quote {
+	background-color: lightgrey;
+	position: absolute; top: 140px; left: 550px;
+	border-style: double;
+	padding-left:5px;
+}
