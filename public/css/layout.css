@@ -73,6 +73,10 @@ body {
 	height: 50%;
 	width: 50%;
 }
+#maincontent p {
+	width: 95%;
+	line-height: 1.5em;
+}
 footer {
 	height: 50px;
 	width: 100%;

@@ -1,0 +1,26 @@
+body {
+	box-sizing: border-box;
+}
+#container {
+	margin: 0px auto;
+	width: 80%;
+	max-width: 1200px;
+}
+.row {
+	width: 100%;
+}
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+.col {
+	float: left;
+	padding: 10px;
+}
+.col.half {
+	width: 50%;
+}
+.col.third {
+	width: 33.33%;
+}
