@@ -1,0 +1,111 @@
+body {
+	background: url("/img/blogbackground.jpg");
+	width: 100%;
+	max-width: 950px;
+	height: 100%;
+	position: fixed;
+	overflow: visible;
+}
+#content {
+	width: 100%;
+	margin: 10% 20%;
+}
+#aboutme {
+	width: 20%;
+	height: 500px;
+	background-color: #FFFFFF;
+	border: 2px solid #111;
+	float: left;
+	padding: 1em;
+	border-radius: .5em;
+}
+#aboutme h1 {
+	font-size: 3em;
+	font-family: Cursive;
+	text-align: right;
+	position: relative;
+	bottom: 1em;
+	line-height: 1em;
+}
+#aboutme .aboutsub {
+	font-size: .5em;
+	font-family: arial;
+	text-align: center;
+	line-height: 1em;
+	position: relative;
+	bottom:7em;
+}
+#aboutme img {
+	height: 200px;
+	width: 190px;
+	position: relative;
+	bottom: 4em;
+}
+#aboutme ul {
+	list-style: none;
+	margin: .5em;
+	padding: 0px;
+	text-align: center;
+	position: relative;
+	bottom: 4em;
+}
+#aboutme ul li a{
+	display: block;
+	color: #aaa;
+	text-decoration: none;
+	margin: .5em;
+	font-size: .75em;
+}
+#aboutme ul li a:hover{
+	color: #888;
+	font-size: .85em;
+}
+#maincontent {
+	width: 70%;
+	height: 500px;
+	background-color: #fff;
+	border: 2px solid #111;
+	float: right;
+	padding: 1em;
+	overflow: scroll;
+	border-radius: .5em;
+}
+article {
+	width: 90%;
+	height: auto;
+	margin: 1em;
+	padding: 1em;
+	border: 1px solid black;
+	border-radius: .5em;
+	background-color: linen;
+}
+article>h1 {
+	font-size: 2em;
+	color: #fff;
+	background: url(/img/headerlabel.jpg);
+	border: 1px solid black;
+	border-left-width: 5px;
+	display: inline-block;
+	width: auto;
+	padding: .5em;
+	position: relative;
+	right:1.5em;
+	bottom: 1.5em;
+}
+article span {
+	color: #bbb;
+	font-size: .75em;
+	text-align: right;
+	display: block;
+	position: relative;
+	bottom: 4.5em;
+}
+article datetime {
+	font-size: .25em;
+}
+article p {
+	position: relative;
+	bottom: 4em;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 14px;
+}
