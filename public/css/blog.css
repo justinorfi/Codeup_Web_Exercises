@@ -1,14 +1,11 @@
 body {
 	background: url("/img/blogbackground.jpg");
 	width: 100%;
-	max-width: 950px;
-	height: 100%;
-	position: fixed;
-	overflow: visible;
+	max-width: 920px;
 }
 #content {
 	width: 100%;
-	margin: 10% 20%;
+	margin: 10% 20%;;
 }
 #aboutme {
 	width: 20%;
@@ -81,10 +78,10 @@ article {
 }
 article>h1 {
 	font-size: 2em;
-	color: #fff;
-	background: url(/img/headerlabel.jpg);
+	color: #000;
+	background-color: peachpuff;
 	border: 1px solid black;
-	border-left-width: 5px;
+	border-left-width: 20px;
 	display: inline-block;
 	width: auto;
 	padding: .5em;
@@ -93,7 +90,7 @@ article>h1 {
 	bottom: 1.5em;
 }
 article span {
-	color: #bbb;
+	color: #999;
 	font-size: .75em;
 	text-align: right;
 	display: block;
