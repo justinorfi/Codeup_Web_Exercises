@@ -4,6 +4,38 @@
 	<title>Grids Exercise</title>
 	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="/css/grid.css">
+	<style type="text/css">
+		html {
+	box-sizing: border-box;
+}
+		*, *:before, *:after {
+    box-sizing: inherit;
+}
+		.col {
+			border: 1px black solid;
+		}
+		.col.half {
+			background-color: red;
+		}
+		.col.third {
+			background-color: orange;
+		}
+		.col.fourth {
+			background-color: yellow;
+		}
+		.col.sixth {
+			background-color: green;
+		}
+		.col.eighth {
+			background-color: blue;
+		}
+		.col.twothird {
+			background-color: violet;
+		}
+		.col.threeeighth {
+			background-color: pink;
+		}
+	</style>
 </head>
 <body>
 <div class="container">
@@ -40,7 +72,13 @@
 		<div class="col eighth">1/8</div>
 		<div class="col eighth">1/8</div>
 	</div>
-
+	<div class="row">
+		<div class="col twothird">2/3</div>
+	</div>
+	<div class="row">
+		<div class="offset-half"></div>
+		<div class="col threeeighth">3/8</div>
+	</div>
 </div>
 
 
