@@ -14,16 +14,25 @@
 .col {
 	float: left;
 	padding: 10px;
+	border: 1px solid black;
 }
 .col.half {
 	width: 50%;
+	background-color: red;
 }
 .col.third {
 	width: 33.33%;
+	background-color: orange;
 }
 .col.fourth {
+	background-color: yellow;
 	width: 25%;
 }
 .col.sixth {
+	background-color: green;
 	width:  16.67%;
+}
+.col.eighth {
+	background-color: blue;
+	width: 12.5%;
 }
