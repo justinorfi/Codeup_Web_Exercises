@@ -1,6 +1,10 @@
 html {
 	box-sizing: border-box;
 }
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
 .container {
 	margin: 0 auto;
 	width: 80%;
@@ -33,7 +37,7 @@ html {
 }
 .col.sixth {
 	background-color: green;
-	width:  16.67%;
+	width:  16.66%;
 }
 .col.eighth {
 	background-color: blue;
