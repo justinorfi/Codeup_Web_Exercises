@@ -18,7 +18,6 @@ body {
 	padding: .25em;
 }
 .navbar ul {
-	margin: 1em;
 	list-style-type: none;
 	text-align: center;
 	float: right;
@@ -94,7 +93,6 @@ footer ul {
 	margin: 0px;
 	padding: 0px;
 	list-style-type: none;
-	text-align: center;
 	float: right;
 	position: relative;
 	bottom: .75em;
@@ -107,7 +105,6 @@ footer ul li a{
 	background-color: #036;
 	text-decoration: none;
 	width: auto;
-	margin: 1em;
 	padding: .2em 1em;
 }
 footer ul li a:hover{
