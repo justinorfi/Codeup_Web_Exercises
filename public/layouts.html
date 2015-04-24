@@ -3,10 +3,19 @@
 <head>
 	<title>Layout Design</title>
 	<link rel="stylesheet" type="text/css" href="/css/layout.css">
+	<link reb="stylesheet" type="text/css" href="/css/grid.css">
+	<style type="text/css">
+		html {
+	box-sizing: border-box;
+}
+		*, *:before, *:after {
+    box-sizing: inherit;
+}
+	</style>
 </head>
 <body>
 
-<nav id="toppage">
+<nav class="row">
 	<div class="navbar">
 		<img src="/img/rebellogo.jpg">
 	<ul>
@@ -18,15 +27,19 @@
 </nav>
 
 <aside class="sidebar">
+	<div class="row">
+		<div class="col third">
 	<ul>
 		<li><a href="#">Reddit</a></li>
 		<li><a href="#">Facebook</a></li>
 		<li><a href="#">Something</a></li>
 	</ul>
+		</div>
+	</div>
 </aside>
 
 
-<main id="maincontent">
+<main id="maincontent" class="row col offset-third">
 	<p>A Death Star was a moon-sized Imperial military battlestation armed with a planet-destroying superlaser.
 The Death Stars, whose concept had been explored even before the Clone Wars, were the first in a long series of superweapons developed to execute the Tarkin Doctrine. The Death Star was designed to allow Emperor Palpatine to more directly control the Galactic Empire through fear. In most instances, a Death Star was to be commanded by a Moff.
 One Death Star was completely built by the Empire, with a second and third one never reaching full completion, as well as a prototype being in existence. In addition, a scaled-down version, the Tarkin, and a Hutt knockoff, the Darksaber, would be created by the Empire and Durga the Hutt, respectively.
@@ -34,8 +47,8 @@ Both Death Stars were destroyed by the Rebel Alliance shortly after they became 
 <div class="deathstarimg"><a href="/img/Death_Star_Owner's_Technical_Manual_Blueprints.jpg"><img src="/img/Death_Star_Owner's_Technical_Manual_Blueprints.jpg"/></a></div>
 </main>
 
-<footer>
-<p>Copyright Justin O 2015</p>
+<footer class="row">
+<p class="col third">Copyright Justin O 2015</p>
 <ul>
 	<li><a href="#">Link 1</a></li>
 	<li><a href="#">Link 2</a></li>

@@ -1,10 +1,6 @@
 .container {
 	margin: 0 auto;
-	width: 80%;
 	max-width: 1200px;
-}
-.row {
-	width: 100%;
 }
 .row:after {
 	content: "";
@@ -13,7 +9,13 @@
 }
 .col {
 	float: left;
-	padding: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 100%;
+}
+.col .row {
+	padding-left: -10px;
+	padding-right: -10px;
 }
 .col.half {
 	width: 50%;
@@ -33,12 +35,24 @@
 .col.twothird {
 	width: 66%;
 }
+.col.fourfifth {
+	width: 80%;
+}
 .col.threeeighth {
 	width: 37.5%;
+}
+.col.fiveeighths {
+	width: 62.5%;
 }
 .offset-half {
 	margin-left: 50%;
 }
 .offset-fourth {
 	margin-left: 25%;
+}
+.offset-fifth {
+	margin-left: 20%;
+}
+.offset-third {
+	margin-left: 33.333333%;
 }
