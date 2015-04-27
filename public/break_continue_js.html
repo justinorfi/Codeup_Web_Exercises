@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Break, Continue JavaScript Exercise!</title>
+</head>
+<body>
+
+<script>
+"strict mode";
+for (var stopPoint = Math.floor((Math.random()*50)+1); stopPoint <= 50; stopPoint = Math.floor((Math.random()*50)+1)) {
+	if (stopPoint % 2 == 1) {
+	console.log("Random odd number to skip is: " + stopPoint);
+	break;
+} //Got it to work like you wanted, but unsure if it's the best way to do it.
+}
+
+for (var x = 1; x <= 50; x++) {
+	if (x % 2 == 0) {
+		continue;
+	}
+	if (x == stopPoint) {
+		console.log('Yikes! Skipping number: ' + stopPoint);
+		continue;
+	}
+	console.log('Here is an odd number: ' + x);
+}
+
+
+
+</script>
+
+</body>
+</html>
