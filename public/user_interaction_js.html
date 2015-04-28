@@ -6,23 +6,24 @@
 <body>
 
 <script>
-// todo: Ask the user for their name.
-//       Keep asking if an empty input is provided.
-do {
-	var name = prompt('What is your name?');
-} while (name === '');
+"use strict";
+function askName(name) {
+	do {
+		var name = prompt('What is your name?');
+	} while ((name == '' || name == 'null') || !isNaN(name));
+	return name;
+}
 
+askName();
 
-// todo: Show an alert message that welcomes the user based on their input.
 alert('Welcome ' + name);
-// todo: Ask the user if they like pizza.
-//       Based on their answer show a creative alert message.
-var pizza = prompt('Do you like pizza?')
+
+var pizza = prompt('Do you like pizza?');
 if (pizza == 'yes') {
-	console.log('Cool, me too.')
+	console.log('Cool, me too.');
 }
 else {
-	console.log('Error.')
+	console.log('Error.');
 }
 </script>
 
