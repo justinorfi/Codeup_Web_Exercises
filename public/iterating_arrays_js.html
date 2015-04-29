@@ -1,0 +1,21 @@
+<!DOCTYPE html>	
+<html>
+<head>
+	<title>Iterating arrays JavaScript Exercise</title>
+</head>
+<body>
+
+<script> 
+(function () {
+"use strict";
+var arrayName = ['something1', 'something2', 'something3', 'something4'];
+for (var x = 0; x < arrayName.length; x++) {
+	console.log('The shape at index ' + x + ' is: ' + arrayName[x]);
+}
+arrayName.forEach(function (a, b, c) {
+	console.log('The shape at index ' + b + ' is: ' + a);
+});})()
+</script>
+
+</body>
+</html>
