@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>High/Low game in JavaScript!</title>
+</head>
+<body>
+<script>
+(function (){
+alert('Welcome to the High/Low Game!');
+alert('You will try to guess a random number between 1 and 100.')
+playAsk();
+function playAsk () { 
+	var playAsk = confirm('Ready to play?')
+		if (play = true) {
+			return true;
+		} else { return false; }
+	}
+if (playAsk = true) {
+	var randomNumber = Math.floor((Math.random()*100)+1);
+	playGame();
+}
+function playGame() {
+	var guess = prompt('Guess a number between 1 and 100.');
+	if (guess < randomNumber) {
+		alert('Too Low! Guess Higher! ' + guess);
+	}
+	else if (guess > randomNumber) {
+		alert('Too High! Guess Lower! ' + guess);
+	}
+	else {
+		alert('You got it! The number was ' + randomNumber);
+		return;
+	}
+	playGame();
+}
+})();
+
+
+</script>
+</body>
+</html>

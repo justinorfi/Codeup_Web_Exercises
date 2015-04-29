@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Reverse Word Game JavaScript!</title>
+</head>
+<body>
+<script>
+"use strict";
+playAgain();
+function playAgain(a) {
+	var play = confirm('Do you want to play?');
+do { 
+reverseWord() }
+while (play = true);
+if (play=false) {
+noPlay();
+}
+}
+function reverseWord(word) {
+	var playAgain = confirm('Do you want to play?');
+	if (playAgain = true) {
+		var word = prompt("enter a word").toLowerCase();
+  		var o = '';
+  		for (var i = word.length - 1; i >= 0; i--)
+    	o += word[i];
+    		if (word != o || word == '') {
+    			reverseWord();
+			} else {
+				alert('Congratulations ' + word + ' = ' + o + '!')
+				playAgain();
+				
+		}
+		}
+}
+function noPlay() {
+	alert('too bad');
+}
+
+</script>
+</body>
+</html>
