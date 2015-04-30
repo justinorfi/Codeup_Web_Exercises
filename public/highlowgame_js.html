@@ -10,15 +10,12 @@ alert('Welcome to the High/Low Game!');
 alert('You will try to guess a random number between 1 and 100.')
 playAsk();
 function playAsk () { 
-	var playAsk = confirm('Ready to play?')
-		if (play = true) {
-			return true;
-		} else { return false; }
+	var play = confirm('Ready to play?')
 	}
-if (playAsk = true) {
+	if (play = true) {
 	var randomNumber = Math.floor((Math.random()*100)+1);
 	playGame();
-}
+} else { return; }
 function playGame() {
 	var guess = prompt('Guess a number between 1 and 100.');
 	if (guess < randomNumber) {
@@ -29,13 +26,11 @@ function playGame() {
 	}
 	else {
 		alert('You got it! The number was ' + randomNumber);
-		return;
+		playAsk();
 	}
 	playGame();
 }
 })();
-
-
 </script>
 </body>
 </html>
