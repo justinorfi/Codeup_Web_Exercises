@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JSON Array</title>
+</head>
+<body>
+<script>
+"use strict";
+var books = [{
+	"title": "House of Leaves" ,
+		"author" : {
+			"first" : "Mark" ,
+			"last" : "Danielewski"
+		},
+	},
+	{ "title": "A Game of Thrones" ,
+		"author" : {
+			"first": "George" ,
+			"last" :"Martin" }
+		},
+	{ "title" : "Jurassic Park",
+		"author" : {
+			"first": "Michael" ,
+			"last": "Crichton" } 
+		},
+	{ "title": "Animal Farm",
+		"author" : {
+			"first": "George" ,
+			"last": "Orwell" }
+			} ,
+	{ "title": "1984" ,
+		"author" : {
+			"first": "George" ,
+			"last": "Orwell"
+		}
+}];
+
+console.log(books);
+
+function logBooks() {
+	for (var a = 0; a < books.length; a++) {
+    console.log("Book #" + (a + 1));
+    console.log("Title: " + books[a].title);
+    console.log("Author: " + books[a].author.first + ' ' + books[a].author.last);
+    console.log("---");
+}
+}
+logBooks();
+</script>
+</body>
+</html>
