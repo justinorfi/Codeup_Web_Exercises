@@ -1,0 +1,80 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font: bold 18px Helvetica, sans-serif;
+}
+html {
+	height: 100%;
+	width: 100%;
+	background-color: #eee;
+}
+#calculator {
+	width: 25%;
+	max-width: 350px;
+	height: auto;
+	margin: 5em auto;
+	padding: 1em .5em;
+	background: #159edf;
+	box-shadow: 0px 4px #283ee4, 0px 10px 20px rgba(0, 0, 0, 0.3);
+	border-radius: .25em;
+}
+.top .screen {
+	height: 35px;
+	width: 95%;
+	margin: 0px .5em auto;
+	float: right;
+	padding: 0px 1em;
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: .25em;
+	box-shadow: inset 0px 4px rgba(0, 0, 0, 0.3);
+	font-size: 16px;
+	color: #fff;
+	text-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+	text-align: right;
+	line-height: 2.5em;
+}
+.keys, .top {
+	overflow: hidden;
+}
+.keys span {
+	float: left;
+	width: 3.5em;
+	height: 2em;
+	line-height: 2em;
+	text-align: center;
+	margin: .4em .61em .4em .5em;
+	background: #3dade3;
+	color: #fff;
+	border-radius: .25em;
+	box-shadow: 0px 4px rgba(0, 0, 0, 0.2);
+	position: relative;
+	top: 0px;
+}
+.keys .zero {
+	width: 8.1em;
+}
+.keys .operand,.keys .percent {
+	background: #4d5fe8;
+	box-shadow: 0px 4px #0a1b9e;
+}
+.keys .eval, .keys .clear {
+	background: #0be66b;
+	box-shadow: 0px 4px #00a447;
+}
+.keys span:hover {
+	background: #68bee8;
+}
+
+.keys .operand:hover, .keys .percent:hover {
+	background: #7583ec;
+}
+
+.keys .eval:hover, .keys .clear:hover {
+	background: #63ed9f;
+}
+.keys span:active {
+	box-shadow: 0px 0px;
+	top: 4px;
+	border-radius: .25em;
+}
