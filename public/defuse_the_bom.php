@@ -11,31 +11,25 @@
     <script>
         var detonationTimer = 5;
         var interval = 1000;
-        // TODO: This function needs to be called once every second
+
         var updateTimer = setInterval( function() {
             if (detonationTimer == 0) {
-                alert('EXTERMINATE!');
-                document.body.innerHTML = '';
+                alert('EXTERMINATE!'); // boom
+                document.body.innerHTML = '<img src="https://s-media-cache-ak0.pinimg.com/236x/28/d0/97/28d09745e167e4845484539f7d7555d4.jpg"/>';
             } else if (detonationTimer > 0) {
                 document.getElementById('timer').innerHTML = detonationTimer;
             }
             detonationTimer--;
         }, interval);
 
-        // TODO: When this function runs, it needs to
-        // cancel the interval/timeout for updateTimer()
         function defuseTheBOM()
         {
             clearInterval(updateTimer);
+            alert('BOM Defused');
+            document.body.innerHTML = ''; // Clears Page
         }
-
-        // Don't modify anything below this line!
-        //
-        // This causes the defuseTheBOM() function to be called
-        // when the "defuser" button is clicked.
-        // We will learn about events in the DOM lessons
-        var defuser = document.getElementById('defuser');
-        defuser.addEventListener('click', defuseTheBOM, false);
+        var defuser = document.getElementById('defuser');       // Listener for
+        defuser.addEventListener('click', defuseTheBOM, false); // button click
     </script>
 </body>
 </html>
