@@ -57,16 +57,11 @@
     	}
     	
         // todo: get all elements with class name sub-paragraph
-        var subParagraphs = document.querySelector('.sub-paragraph');
+        var subParagraphs = document.getElementsByClassName('sub-paragraph')[0];
         // todo: change the text in the first sub paragraph to "Mission Accomplished!"
-        var interval = 400
         var changeP = function() {
-        setInterval(function () {
-        subParagraphs.innerHTML = 'Mission Accomplished!';
-            for (var a = 0; a > subParagraphs.length; a++) {
-                subParagraphs.charAt(a).style['color'] = 'red';
-            }
-    	}, interval);
+        subParagraphs.innerText = 'Mission Accomplished!';
+        subParagraphs.style['color'] = 'red';
 }
 
     	var mainHeaderBtn = document.getElementById('mainHeaderBtn');
@@ -77,8 +72,6 @@
     	listBtn.addEventListener('click', changeList, false);
     	var pBtn = document.getElementById('pBtn');
     	pBtn.addEventListener('click', changeP, false);
-        //Could not get getElementsByClassName to function properly.
-
 
 </script>
 </body>
