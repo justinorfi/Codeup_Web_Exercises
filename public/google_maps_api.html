@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<style>
+#map-canvas {
+	width: 800px;
+	height: 600px;
+}
+</style>
+</head>
+<body>
+<div id="map-canvas"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu4ywIQKuf8EE353TjNpP8BGk6crwufdc"></script>
+ <script type="text/javascript">
+var mapOptions = {
+      zoom: 4,
+      center: { lat: 40.20757373001858, lng: -94.55994335937498 },
+      mapTypeControlOptions: {
+      mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+    }};
+var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+var restaurant = { lat: 29.490244, lng: -98.579654 };
+var marker2 = new google.maps.Marker({
+      position: restaurant,
+      map: map,
+});
+var joesKnowsNoBounds = new google.maps.LatLngBounds(
+      new google.maps.LatLng(29.6066129273518924, -98.99841992187498),
+      new google.maps.LatLng(27.71602387530555, -102.3355234375));
+var joesOverlay = new google.maps.GroundOverlay(
+      'http://www.mydeejay.com/images/wordpress/uploads/2011/07/eat_at_joes_low-600x200.png',joesKnowsNoBounds);
+var infowindow2 = new google.maps.InfoWindow({
+	content: ''
+});
+var styles = [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      { "hue": "#ff0000" },
+      { "visibility": "on" },
+      { "gamma": 0.1 },
+      { "saturation": -2 }
+    ]
+  },{
+    "featureType": "water",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  },{
+    "featureType": "administrative.province",
+    "elementType": "labels",
+    "stylers": [
+      { "visibility": "off" }
+    ]
+  }
+];
+var styledMap = new google.maps.StyledMapType(styles,{name: "RED Map"});
+map.mapTypes.set('map_style', styledMap);
+map.setMapTypeId('map_style');
+joesOverlay.setMap(map);
+infowindow2.open(map,marker2);
+  </script>
+</body>
+</html>

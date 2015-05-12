@@ -2,10 +2,10 @@
 var keys = document.querySelectorAll('#calculator span');
 var operators = ['+', '-', 'x', '÷', '%'];
 var decimalAdded = false;
+var input = document.querySelector('#screen');
 
 for(var i = 0; i < keys.length; i++) {
 	keys[i].onclick = function(e) {
-		var input = document.querySelector('#screen');
 		var inputVal = input.innerHTML;
 		var btnVal = this.innerHTML;
 		if(btnVal == 'C') {
@@ -18,7 +18,7 @@ for(var i = 0; i < keys.length; i++) {
 			var equation = inputVal;
 			var lastChar = equation[equation.length - 1];
 			equation = equation.replace(/x/g, '*');
-			equation = equation.replace(/%/g, '/100')
+			equation = equation.replace(/%/g, '/100 *')
 			if(operators.indexOf(lastChar) > -1 || lastChar == '.')
 				equation = equation.replace(/.$/, '');
 			

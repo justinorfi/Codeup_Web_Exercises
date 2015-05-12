@@ -20,7 +20,7 @@ html {
 	box-shadow: 0px 4px #283ee4, 0px 10px 20px rgba(0, 0, 0, 0.3);
 	border-radius: .25em;
 }
-.top .screen {
+.top #screen {
 	height: 35px;
 	width: 95%;
 	margin: 0px .5em auto;
