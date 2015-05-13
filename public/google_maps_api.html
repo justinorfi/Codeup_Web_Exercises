@@ -2,7 +2,6 @@
 <html>
 <head>
 	<title></title>
-
 <style>
 #map-canvas {
 	width: 800px;
@@ -14,7 +13,7 @@
 <div id="map-canvas"></div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu4ywIQKuf8EE353TjNpP8BGk6crwufdc"></script>
  <script type="text/javascript">
-var mapOptions = {
+var mapOptions = { //sets center of map, outside US
       zoom: 4,
       center: { lat: 40.20757373001858, lng: -94.55994335937498 },
       mapTypeControlOptions: {
@@ -62,6 +61,6 @@ map.mapTypes.set('map_style', styledMap);
 map.setMapTypeId('map_style');
 joesOverlay.setMap(map);
 infowindow2.open(map,marker2);
-  </script>
+</script>
 </body>
 </html>
