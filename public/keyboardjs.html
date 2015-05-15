@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>a</title>
+<script src="/js/jquery2.js"></script>
+<style>
+.instruct {
+	font-size: 14px;
+}
+.time {
+	font-size: 20px;
+	color: #f00;
+}
+.score {
+	float: right;
+	font-size: 12px;
+}
+#score {
+	color: #0a0;
+}
+#randomstring {
+	font-size: 44px;
+	text-align: center;
+}
+</style>
+</head>
+
+<body>
+<h1 id='randomstring'>.</h1>
+<p class='instruct'>Type the string before time runs out! 
+	<span class='time'>10</span>
+</p>
+	<span class='score'>Score:<span id='score'>.</span>
+<script>
+$(document).ready(function() {
+	var score = 0;
+	var randomstring;
+	function createRandom() {
+		randomString = Math.random().toString(36).substr(2, 10);
+		$('#randomstring').html(randomstring);
+	}
+	var timer = 10;
+	$('#score').html(score);
+	setInterval(timing, 1000);
+	console.log(randomstring)
+	var type = [
+	randomstring.charCodeAt(0),
+	randomstring.charCodeAt(1),
+	randomstring.charCodeAt(2),
+	randomstring.charCodeAt(3),
+	randomstring.charCodeAt(4),
+	randomstring.charCodeAt(5),
+	randomstring.charCodeAt(6),
+	randomstring.charCodeAt(7),
+	randomstring.charCodeAt(8),
+	randomstring.charCodeAt(9)
+	]
+
+	console.log(type);
+	$(document).keypress(function(e) {
+		if (e == type[i]) {
+			i++
+			console.log(e + ',' + type[i]);
+		}
+		else createRandom();
+	});
+
+
+	function timing() {
+		if(timer == 0) {
+			clearInterval(timing)
+		}
+		$('.time').html(timer)
+		timer--
+	}
+});
+</script>
+</body>
+</html>
