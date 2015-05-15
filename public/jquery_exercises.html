@@ -2,55 +2,43 @@
 <html>
 <head>
 	<title>Adding jquery</title>
-<style>
-#indivtwo {
-	width: 400px;
-}
-#outdiv:after {
-	content: "";
-	display: inline-block;
-	clear: both;
-}
-</style>
+
+<script	src="js/jquery2.js"></script>
+
 </head>
 <body>
 <div id="outdiv">
+	<h1 class="mainheading">Valar morghoulis</h1>
 	<p class="codeup">Liquor ipsum dolor sit amet. Leroux blue hawaii knockdhu, bombay piscola christian brothers kalimotxo vodka sundowner lorraine buck's fizz. The amarosa cocktail; tomatin metaxas; mai-tai dufftown blair athol bananarita bloody mary sambuca matador clynelish. Bengal long island iced tea whiskey sour glenrothes, culture shock, brandy daisy talisker lochnagar chartreuse fleischmann's port charlotte. Paloma murphy's knockeen hills irish poteen, grant's old bushmill's the macallan tanqueray hennessey, glenfiddich. Mickey slim, tullibardine glen moray allt-á-bhainne, matador satan's whiskers. One-balled dictator, orgasm tequila sunset, ginza mary bloody mary colorado bulldog glen scotia ginza mary, irish mist. Four horsemen hiram walker, "bijou ben nevis auchroisk royal arrival flaming dr pepper.</p>
-	<div id="indiv">
-		<p>Liquor ipsum dolor sit amet. Leroux blue hawaii knockdhu, bombay piscola christian brothers kalimotxo vodka sundowner lorraine buck's fizz. The amarosa cocktail; tomatin metaxas; mai-tai dufftown blair athol bananarita bloody mary sambuca matador clynelish. Bengal long island iced tea whiskey sour glenrothes, culture shock, brandy daisy talisker lochnagar chartreuse fleischmann's port charlotte. Paloma murphy's knockeen hills irish poteen, grant's old bushmill's the macallan tanqueray hennessey, glenfiddich. Mickey slim, tullibardine glen moray allt-á-bhainne, matador satan's whiskers. One-balled dictator, orgasm tequila sunset, ginza mary bloody mary colorado bulldog glen scotia ginza mary, irish mist. Four horsemen hiram walker, "bijou ben nevis auchroisk royal arrival flaming dr pepper.
-		</p>
-		<p class="codeup">Liquor ipsum dolor sit amet. Leroux blue hawaii knockdhu, bombay piscola christian brothers kalimotxo vodka sundowner lorraine buck's fizz. The amarosa cocktail; tomatin metaxas; mai-tai dufftown blair athol bananarita bloody mary sambuca matador clynelish. Bengal long island iced tea whiskey sour glenrothes, culture shock, brandy daisy talisker lochnagar chartreuse fleischmann's port charlotte. Paloma murphy's knockeen hills irish poteen, grant's old bushmill's the macallan tanqueray hennessey, glenfiddich. Mickey slim, tullibardine glen moray allt-á-bhainne, matador satan's whiskers. One-balled dictator, orgasm tequila sunset, ginza mary bloody mary colorado bulldog glen scotia ginza mary, irish mist. Four horsemen hiram walker, "bijou ben nevis auchroisk royal arrival flaming dr pepper.
-		</p>
 		<ul>
 			<li><a href="#">Here</a></li>
 			<li><a href="#">are</a></li>
 			<li class="codeup"><a href="#">some</a></li>
 			<li><a href="#">links</a></li>
 	</div>
-	<div id="indivtwo">
-		<p class="codeup">
-		Liquor ipsum dolor sit amet. Leroux blue hawaii knockdhu, bombay piscola christian brothers kalimotxo vodka sundowner lorraine buck's fizz. The amarosa cocktail; tomatin metaxas; mai-tai dufftown blair athol bananarita bloody mary sambuca matador clynelish. Bengal long island iced tea whiskey sour glenrothes, culture shock, brandy daisy talisker lochnagar chartreuse fleischmann's port charlotte. Paloma murphy's knockeen hills irish poteen, grant's old bushmill's the macallan tanqueray hennessey, glenfiddich. Mickey slim, tullibardine glen moray allt-á-bhainne, matador satan's whiskers. One-balled dictator, orgasm tequila sunset, ginza mary bloody mary colorado bulldog glen scotia ginza mary, irish mist. Four horsemen hiram walker, "bijou ben nevis auchroisk royal arrival flaming dr pepper.
-		</p>
 </div>
 <button id="fix">mess things up</button>
 
+<script>
+$(document).ready(function() {
+	$('.mainheading').click(function() {
+		$(this).css('background-color', 'magenta');
+	});
+	$('.codeup').dblclick(function() {
+		$(this).css('font-size', '18px');
+	});
+	$('li>a').hover(function(){
+		$(this).css('color', '#f00');
+	},
+		function() {
+		$(this).css('color', '#00f');
+	});
+});
+</script>
 
 <script	src="js/jquery2.js"></script>
 
-<script>
-$(document).ready( function(){
-	var outie = $("#outdiv");
-	var innie = $("#indiv");
-	var listlinks = $("li>a");
-	var codeup = $(".codeup")
-	codeup.css("border", "1px solid blue");
-	outie.css("background-color","teal");
-	innie.css("background-color","red").css("width", "700px").css("float","left");
-	listlinks.css("color","green");
-})
-var fixd = $("#fix").click(function (event) {
-	$("p, li, h1").css("background-color", "#fff").css("text-align", "center").css("margin", "2em");
-});
+
 
 </script>
 </body>
