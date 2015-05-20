@@ -14,12 +14,17 @@
 .score {
 	float: right;
 	font-size: 12px;
+	clear:both;
 }
 #score {
 	color: #0a0;
 }
 #randomstring {
 	font-size: 44px;
+	text-align: center;
+}
+#inputbox {
+	width: 100%;
 	text-align: center;
 }
 </style>
@@ -30,49 +35,44 @@
 <p class='instruct'>Type the string before time runs out! 
 	<span class='time'>10</span>
 </p>
-	<span class='score'>Score:<span id='score'>.</span>
+	<div id='scorecard'><span class='score'>Score:<span id='score'>.</span></div>
+	<div id='inputbox'><input id='input' type='text'></div>
 <script>
 $(document).ready(function() {
 	var score = 0;
-	var randomstring;
-	function createRandom() {
-		randomString = Math.random().toString(36).substr(2, 10);
-		$('#randomstring').html(randomstring);
-	}
-	var timer = 10;
+	var timer = 3;
+	var randomString = Math.random().toString(36).substr(2, 5);
+
 	$('#score').html(score);
 	setInterval(timing, 1000);
-	console.log(randomstring)
-	var type = [
-	randomstring.charCodeAt(0),
-	randomstring.charCodeAt(1),
-	randomstring.charCodeAt(2),
-	randomstring.charCodeAt(3),
-	randomstring.charCodeAt(4),
-	randomstring.charCodeAt(5),
-	randomstring.charCodeAt(6),
-	randomstring.charCodeAt(7),
-	randomstring.charCodeAt(8),
-	randomstring.charCodeAt(9)
-	]
-
-	console.log(type);
+	console.log(randomString)
+	function gamePlay() {
 	$(document).keypress(function(e) {
-		if (e == type[i]) {
-			i++
-			console.log(e + ',' + type[i]);
+		for (var i = 0; i < randomString.length; i++) {
+			var check = randomString.charCodeAt(i);
+			if (e.keyCode == check) {
+				i++
+			}
+				console.log(e.keyCode + ',' + check + ',' + i);
 		}
-		else createRandom();
 	});
-
-
-	function timing() {
-		if(timer == 0) {
-			clearInterval(timing)
-		}
-		$('.time').html(timer)
-		timer--
 	}
+	var newCycle = function() {
+	var randomString = Math.random().toString(36).substr(2, 5);
+	$('#randomstring').html(randomString);
+	}
+	gamePlay();
+	function timing() {
+		if(timer == -1) {
+			clearInterval(timing);
+			alert('Game Over!');
+		} else if(timer>=0) {
+		$('.time').html(timer);
+	}
+	timer--
+	}
+	newCycle();
+
 });
 </script>
 </body>
