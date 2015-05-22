@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<style>
+#map-canvas {
+	width: 600px;
+	height: 400px;
+}
+</style>
+</head>
+<body>
+<div id="map-canvas"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu4ywIQKuf8EE353TjNpP8BGk6crwufdc"></script>
+ <script type="text/javascript">
+    var mapOptions = {
+      zoom: 18,
+      center: { lat: 29.4284595, lng: -98.492433 }
+    };
+    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+  </script>
+</body>
+</html>
