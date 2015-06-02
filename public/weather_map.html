@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather Map</title>
+	<link rel="stylesheet" type="text/css" href="/css/weather_map.css">
+	<script type="text/javascript" src="/js/jquery2.js"></script>
+</head>
+<body>
+<header>
+	<h1>Daily Forcast for <span class="cityName">*</span></h1>
+</header>
+<main>
+	<div id="pageContainer">
+		<div id="daysContainer">
+			<div id="day0" class='dayContainer'></div>
+			<div id="day1" class='dayContainer'></div>
+			<div id="day2" class='dayContainer'></div>
+			<div id="day3" class='dayContainer'></div>
+			<div id="day4" class='dayContainer'></div>
+		</div>
+	</div>
+</main>
+<script>
+"use strict";
+function weather() {
+		$.ajax({
+			url: 'http://api.openweathermap.org/data/2.5/forecast/daily',
+		    type: "GET",
+		    data: {
+		        q:   'San Antonio TX',
+		        cnt: '5',
+		        units: "imperial"
+		    }
+		}).done(weatherData);
+}
+function weatherData(data){
+	console.log(data);
+	console.log(data.list[0].dt)
+	var month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	var day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	$('.cityName').text(data.city.name)
+	for (var i = 0; i < data.list.length; i++){
+		var icon = data.list[i].weather[0].icon;
+		$('#day' + i).append('<img class="icon" src="http://openweathermap.org/img/w/' + icon + '.png">');
+		$('#day' + i).append('<div class="weatherInfo"><div class="weatherForecast">Forecast: ' + data.list[i].weather[0].description + '</div>');
+		$('#day' + i).append('<div class="weatherHumidity">Humidity: ' + data.list[i].humidity + '</div>');
+		$('#day' + i).append('<div class="weatherTemp">High: ' + data.list[i].temp.max);
+		$('#day' + i).append('Low: ' + data.list[i].temp.min + '</div>');
+		$('#day' + i).append(day[new Date(data.list[i].dt * 1000).getDay()] + ', ' + month[new Date(data.list[i].dt * 1000).getMonth()] + ' ' + new Date(data.list[i].dt * 1000).getDate() + '</div>');
+	}
+}
+weather();
+</script>
+</body>
+</html>

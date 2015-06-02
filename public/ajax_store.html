@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+</head>
+<body>
+
+<h1>My Tool Store</h1>
+
+<table id="products">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+<h3>Add a tool</h3>
+<form method="POST">
+    <label for="toolName">Name of tool</label>
+        <input type='text' name="toolName" id="toolName">
+    <label for="toolQuantity">Quantity</label>
+        <input type='text' name="toolQuantity" id="toolQuantity">
+    <label for "toolPrice">Price</label>
+        <input type='text' name="toolPrice" id="toolPrice">
+    <label for "toolCategory">Category(ies)</label>
+        <input type='text' name="toolCategory" id="toolCategory">
+        <input id='submitData' type='submit'>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+(function() {
+    var ajaxData = {
+
+        loadData: function(){
+            var tools = $.ajax('/data/inventory.json').done(function(data){
+            for (var i = 0; i < data.length; i++) {
+            $('#insertProducts')
+                .append('<tr>')
+                .append('<td>' + data[i].title + '</td>')
+                .append('<td>' + data[i].quantity + '</td>')
+                .append('<td>' + data[i].price + '</td>')
+                .append('<td>' + data[i].categories + '</td>')
+                .append('</tr>')
+        }})},
+        addData: function(){
+        var toolName = $('#toolName').text
+        var toolQuantity = $('#toolQuantity').text
+        var toolCategory = document.getElementById('toolCategory').innerText.split('')
+        var toolPrice = $('#toolPrice').text
+            $.ajax({
+                url:'/data/inventory.json',
+                type: 'GET',
+                data: {
+                    title: toolName,
+                    quantity: toolQuantity,
+                    categories: toolCategory,
+                    price: toolPrice
+                }
+            }).done(ajaxData.loadData());
+            console.log(toolName)
+            console.log(toolQuantity)
+            }
+        }
+
+ajaxData.loadData();
+
+$(document).ready(function() {
+    $('#submitData').submit(ajaxData.addData()); 
+});
+
+})();
+</script>
+
+</body>
+</html>
