@@ -7,7 +7,7 @@
 </head>
 <body>
 <header>
-	<h1>Daily Forcast for <span class="cityName">*</span></h1>
+	<h1>Daily Forcast for <span class="cityName"><img id="loading" src="/img/nikeload.gif"/></span></h1>
 </header>
 <main>
 	<div id="pageContainer">
@@ -20,19 +20,51 @@
 		</div>
 	</div>
 </main>
+<aside>
+	<div id="asideHeader"><h2>Drag the Marker to search the weather</h2></div>
+	<div id="mapCanvas"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAu4ywIQKuf8EE353TjNpP8BGk6crwufdc"></script>
 <script>
 "use strict";
-function weather() {
-		$.ajax({
-			url: 'http://api.openweathermap.org/data/2.5/forecast/daily',
-		    type: "GET",
-		    data: {
-		        q:   'San Antonio TX',
-		        cnt: '5',
-		        units: "imperial"
-		    }
-		}).done(weatherData);
+var myLatlng = new google.maps.LatLng(29.4246,-98.4946);
+var mapOptions = {
+      zoom: 7,
+      center: myLatlng
+    };
+var map = new google.maps.Map(document.getElementById("mapCanvas"), mapOptions);
+var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      draggable: true
+  });
+
+function getLocation() {
+	if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
 }
+
+function showPosition(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    console.log(latitude);
+    console.log(longitude);
+    weather(latitude, longitude);
+}
+
+function weather(latitude, longitude) {
+		$.get('http://api.openweathermap.org/data/2.5/forecast/daily', {
+		    lat: latitude,
+		    lon: longitude,
+		    cnt: '5',
+		    units: "imperial"
+		})
+		.done(weatherData)
+		.done(function(){
+			$('#loading').hide();
+		});
+}
+
 function weatherData(data){
 	console.log(data);
 	console.log(data.list[0].dt)
@@ -41,15 +73,39 @@ function weatherData(data){
 	$('.cityName').text(data.city.name)
 	for (var i = 0; i < data.list.length; i++){
 		var icon = data.list[i].weather[0].icon;
+		$('#day' + i).html('');
 		$('#day' + i).append('<img class="icon" src="http://openweathermap.org/img/w/' + icon + '.png">');
-		$('#day' + i).append('<div class="weatherInfo"><div class="weatherForecast">Forecast: ' + data.list[i].weather[0].description + '</div>');
-		$('#day' + i).append('<div class="weatherHumidity">Humidity: ' + data.list[i].humidity + '</div>');
-		$('#day' + i).append('<div class="weatherTemp">High: ' + data.list[i].temp.max);
-		$('#day' + i).append('Low: ' + data.list[i].temp.min + '</div>');
-		$('#day' + i).append(day[new Date(data.list[i].dt * 1000).getDay()] + ', ' + month[new Date(data.list[i].dt * 1000).getMonth()] + ' ' + new Date(data.list[i].dt * 1000).getDate() + '</div>');
+		$('#day' + i).append('<div class="weatherForecast">' + data.list[i].weather[0].description + '</div>');
+		$('#day' + i).append('<div class="weatherHumidity">Humidity: ' + data.list[i].humidity + '%</div>');
+		$('#day' + i).append('<div class="weatherTemp"><h4>' + parseInt(data.list[i].temp.max) + ' / ' + parseInt(data.list[i].temp.min) + '</h4></div>');
+		$('#day' + i).append('<div class="weatherDate"><h3>' + day[new Date(data.list[i].dt * 1000).getDay()] + ', ' + month[new Date(data.list[i].dt * 1000).getMonth()] + ' ' + new Date(data.list[i].dt * 1000).getDate() + '</h3></div>');
 	}
 }
-weather();
+
+function weatherSearch(lat, lon) {
+		$.ajax({
+			url: 'http://api.openweathermap.org/data/2.5/forecast/daily',
+		    type: "GET",
+		    data: {
+		        lat:lat,
+		        lon:lon,
+		        cnt: '5',
+		        units: "imperial"
+		    }
+		}).done(weatherData);
+}
+
+marker.setMap(map);
+google.maps.event.addListener(marker, 'dragend', function() {
+	$('#loading').show();
+    myLatlng = marker.getPosition();
+    console.log(myLatlng);
+    var lat = myLatlng.A;
+    var lon = myLatlng.F;
+    map.setCenter(myLatlng);
+    weatherSearch(lat, lon);
+  });
+getLocation();
 </script>
 </body>
 </html>
