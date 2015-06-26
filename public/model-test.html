@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="modelTest">
+<head>
+	<title>Model Test</title>
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+	<script type="text/javascript" src="/js/modelTest.js"></script>
+	<style type="text/css">
+		.regCont {
+			width: 40%;
+			border: 1px solid #000;
+			float: left;
+			padding: 1em;
+		}
+		label {
+			display: inline-block;
+			width: 125px;
+			margin-bottom: 1em;
+		}
+		.dispCont {
+			width: 40%;
+			margin-left: 45%;
+			padding: 1em;
+		}
+		.importante {
+			color: #f00;
+		}
+		input.ng-touched .ng-invalid:after {
+			content: url(/img/error.png);
+		}
+	</style>
+</head>
+<body>
+	<h1>Registration <span class="importante">Required</span></h1>
+	<div class="regCont">
+		<form>
+			<label for="user_name">Name:</label>
+				<input type="text" id="user_name" ng-model="user.name" minlength="2" required>
+					<img src="/img/error.png" ng-hide="user.name"/><br>
+			<label for="user_username">Username:</label>
+				<input type="text" id="user_username" ng-model="user.username" minlength="4" required>
+					<img src="/img/error.png" ng-hide="user.name"/><br>
+			<label for="user_password">Password:</label>
+				<input type="password" id="user_password" ng-model="user.password" minlength="6" required>
+					<img src="/img/error.png" ng-hide="user.name"/><br>
+			<label for="user_checkpassword">Reenter Password:</label>
+				<input type="password" id="user_checkpassword" ng-model="user.password" minlength="6" required>
+					<img src="/img/error.png" ng-hide="user.name"/><br>
+			<label for="user_email">Email:</label>
+				<input type="email" id="user_email" ng-model="user.email" required>
+					<img src="/img/error.png" ng-hide="user.name"/><br>
+			<label for="user_dob">Date of Birth:</label>
+				<input type="date" id="user_dob" ng-model="user.dob" required>
+					<img src="/img/error.png" ng-hide="user.name"/><br>
+			<input type="submit">
+		</form>
+	</div>
+	<div class="dispCont">
+		<h3 class="username">{{ user.name }}</h3>
+		<h3 class="userusername">{{ user.username }}</h3>
+		<h3 class="useremail">{{ user.email }}</h3>
+		<h3 class="userdob">{{ user_dob }}</h3>
+	</div>
+</body>
+</html>

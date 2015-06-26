@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="templateTest">
+<head>
+	<title>Template Test</title>
+	<script type="text/javascript" src="/js/angular.min.js"></script>
+	<script type="text/javascript" src="/js/templateTest.js"></script>
+	<style type="text/css">
+	[ng-cloak] {
+		display: none !important;
+	}
+	li:first-child {
+    	font-style: italic;
+	}
+	li:last-child {
+    	font-weight: bold;
+ 	}
+ 	.num:nth-child(even) {
+ 		color: #0ac;
+ 	}
+ 	.lett:nth-child(even) {
+ 		color: #a40;
+ 	}
+ 	.imgSize {
+ 		max-width: 400px;
+ 		max-height: 400px;
+ 	}
+	</style>
+</head>
+<body ng-cloak>
+	<h1>Template Test</h1>
+	<ol>
+		<li class="num" ng-repeat="num in [1,2,3,4,5,6,7,8,9]" ng-if="num % 3 != 0"> {{ num }} </li>
+	</ol>
+	<ol>
+		<li class="lett" ng-repeat="letter in ['A','B','C','D','E','F']"> {{ letter | uppercase | lowercase }}</li>
+	</ol>
+
+	<img class="imgSize" ng-repeat="OMGTHATLOOKSSOFKINGOOD in [1, 2, 3]" ng-src="/img/{{OMGTHATLOOKSSOFKINGOOD}}.jpeg"/>
+
+</body>
+</html>
